@@ -1,0 +1,147 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<body>
+    {% csrf_token %}
+    <header>
+        <div class="mainbrd">
+            <ul>
+                <li>
+                    <ul>
+                        <li>
+                            <button class="MainButton">
+								<a href="{% url 'games' %}" class="text">
+								<img src="https://emojis.wiki/emoji-pics/openmoji/black-cat-openmoji.png" width="60" height="60" class="displayed">
+								<p class="p1"><span class="MainText">C.A.T.</span></p></a>
+							</button>
+                        </li>
+                        <li>
+                            <a href="{% url 'results' %}">
+                            <button class="RateButton">
+								<p><span class="HeaderText">РЕЗУЛЬТАТЫ</span></p>
+							</button>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="right">
+                    <button class="LoginButton">
+                        {% if request.user.is_authenticated %}
+						<a href="{%url 'logout'%}"><p><span class="HeaderText">ВЫЙТИ</span></p></a>
+                        {% else %}
+                        <a href="{%url 'login'%}"><p><span class="HeaderText">ВОЙТИ</span></p></a>
+                        {%endif%}
+					</button>
+                </li>
+                <li class="right">
+                    <button class="SignUpButton">
+                        {% if request.user.is_authenticated %}
+						<p><span class="HeaderText">{{request.user}}</span></p>
+                         {% else %}
+                        <a href="{%url 'register'%}"><p><span class="HeaderText">РЕГИСТРАЦИЯ</span></p></a>
+                        {%endif%}
+					</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="gamebrd" id="firstTest">
+        <p class="p2"> &nbsp;</p>
+        <p>
+            {% load static %}
+            <img src="{% static 'base/Cat1.jpg' %}">
+        </p>
+        <p>
+            <span class="BorderWText">C.A.T. - Cognitive Ability Test</span>
+        </p>
+        <p>
+            <span class="BorderWText">Тесты для развития когнитивных навыков</span>
+        </p>
+        <p>
+            <span class="BorderWText">Чтобы начать нажмите кнопку "СТАРТ"</span>
+        </p>
+        <p>
+            <center><button class="StartButton StartSize">СТАРТ</button></center>
+        </p>
+    </div>
+    <div>
+        <center>
+            <table class="iksweb">
+                <tbody>
+                    <tr>
+                        <td>
+                            <center>
+                                <a href="{% url 'reaction_time' %}" class="text">
+                                <button class="GamesButton GameSize">
+
+										<ul class="ul1">
+											<li>
+												<p class="p2"><img src="https://protymen.ru/upload/iblock/900/900af8917113cba76314148af9f3a1fd.png" width="106.4" height="106.4"></p>
+											</li>
+											<li>
+												<p class="p2"> &nbsp;</p><p class="p2">Скорость реакции</p>
+											</li>
+										</ul>
+
+								</button>
+                                    </a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <button class="GamesButton GameSize">
+									<a href="verbal.html" class="text">
+										<ul class="ul1">
+											<li>
+												<p class="p2"><img src="https://cdn-icons-png.flaticon.com/512/182/182321.png" width="106.4" height="106.4"></p>
+											</li>
+											<li>
+												<p class="p2"> &nbsp;</p><p class="p2">Вербальная память</p>
+											</li>
+										</ul>
+									</a>
+								</button>
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <center>
+                                <button class="GamesButton GameSize">
+									<a href="ordinal.html" class="text">
+										<ul class="ul1">
+											<li>
+												<p class="p2"><img src="https://cdn-icons-png.flaticon.com/512/666/666907.png" width="106.4" height="106.4"></p>
+											</li>
+											<li>
+												<p class="p2"> &nbsp;</p><p class="p2">Порядковая память</p>
+											</li>
+										</ul>
+									</a>
+								</button>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <button class="GamesButton GameSize">
+									<a href="print.html" class="text">
+										<ul class="ul1">
+											<li>
+												<p class="p2"><img src="https://cdn-icons-png.flaticon.com/512/40/40144.png" width="106.4" height="106.4"></p>
+											</li>
+											<li>
+												<p class="p2"> &nbsp;</p>
+												<p class="p2">Скорость печатания</p>
+											</li>
+										</ul>
+									</a>
+								</button>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
+</body>
+{% endblock content %}

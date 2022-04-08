@@ -1,0 +1,14 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<body>
+<a href="{% url 'games' %}">Back</a>
+<h1>Login</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Login">
+</form>
+<p>Do not have an account? <a href="{% url 'register' %}">Register</a> </p>
+</body>
+{% endblock content %}

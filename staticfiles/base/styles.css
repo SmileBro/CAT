@@ -1,0 +1,29 @@
+.header {
+	border: none;
+	background: white;
+	text-align: center;
+}
+
+.main {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;   
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -khtml-user-select: none;
+}
+
+.canvas-parent {
+	cursor: pointer;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 470px;
+	background: rgb(86, 86, 231);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
