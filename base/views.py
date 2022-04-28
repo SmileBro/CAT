@@ -9,7 +9,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-
+#forms
+from .forms import CreateUserForm
 # Imports for Reordering Feature
 from django.views import View
 from django.shortcuts import redirect
@@ -25,9 +26,31 @@ class gameList(TemplateView):
 #   template_name = 'base/reaction_time/index.html'
 def ReactionTime(request):
     if request.method == 'POST':
-        r = Result(user=request.user, game='Reaction Time', score = request.body)
-        r.save()
+        if request.user.is_authenticated:
+            r = Result(user=request.user, game='Скорость реакции', score = request.body)
+            r.save()
     return render(request, "base/reaction_time/index.html", {})
+
+def MemoryTest(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            r = Result(user=request.user, game='Порядковая память', score = request.body)
+            r.save()
+    return render(request, "base/memory_test/memory_test.html", {})
+
+def TypeSpeed(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            r = Result(user=request.user, game='Скорость печати', score = request.body)
+            r.save()
+    return render(request, "base/type_speed/type_speed.html", {})
+
+def Verbal(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            r = Result(user=request.user, game='Вербальная память', score = request.body)
+            r.save()
+    return render(request, "base/verbal/verbal.html", {})
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -38,9 +61,9 @@ class CustomLoginView(LoginView):
 
 class RegisterPage(FormView):
     template_name = 'base/register.html'
-    form_class = UserCreationForm
+    form_class = CreateUserForm
 
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('games')
 
     def form_valid(self, form):
         user = form.save()
@@ -50,7 +73,7 @@ class RegisterPage(FormView):
 
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('tasks')
+            return redirect('games')
         return super(RegisterPage, self).get(*args, **kwargs)
 
 class ResultList(LoginRequiredMixin,ListView):
