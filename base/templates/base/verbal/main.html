@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.A.T.</title>
+    <link rel="shortcut icon" href="black-cat-openmoji.ico" type="image/x-icon">
+</head>
+    <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-color: #ffffff;
+	color: black;
+	text-align: center;
+}
+
+.title {
+	margin: 10px;
+	font-size: 2.5rem;
+	color: black;
+}
+
+.main {
+	background: rgb(86, 86, 231);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	height: 400px;
+	width: 80%;
+	border-radius: 12px;
+	justify-content: center;
+}
+
+.header {
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+}
+
+.lives-block {
+	margin-right: 35px;
+}
+
+.lives-block, .score-block, .buttons {
+	display: flex;
+}
+
+.result-block, .restart {
+	display: none;
+}
+
+.lives-value, .score-value {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.word {
+	font-size: 2.5rem;
+	color: white;
+	text-align: justify;
+	margin: 15px;
+	padding: 25px;
+	border-radius: 12px;
+}
+
+.seen, .new, .restart {
+	background-color: #126f65;
+	font-size: 1.5rem;
+	padding: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 1px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.seen:hover, .new:hover, .restart:hover {
+	background-color: #126f30;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>

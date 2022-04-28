@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.A.T.</title>
+    <link rel="shortcut icon" href="black-cat-openmoji.ico" type="image/x-icon">
+</head>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+	font-family: 'Poppins', sans-serif;
+}
+     .header {
+	border: none;
+	background: white;
+	text-align: center;
+}
+
+.main {
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;   
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -khtml-user-select: none;
+}
+
+.cards-parent {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 470px;
+	border-radius: 9px;
+	background: rgb(86, 86, 231);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.row {
+	text-align: center;
+}
+
+.card {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	margin: 1px;
+	background-color: #eee;
+	border-radius: 9px;
+	cursor: pointer;
+}
+
+.card:hover {
+	background-color: #ddf;
+}
+
+.highlight {
+	background-color: #999;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>

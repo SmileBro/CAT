@@ -1,0 +1,30 @@
+{% extends 'base/verbal/main.html' %}
+{% block content %}
+	<body>
+	{% csrf_token %}
+		<div class="title">Verbal Memory Test</div>
+		<div class="main">
+			<div class="header">
+				<div class="lives-block">
+					<div class="lives">Lives:</div>
+					<div class="lives-value">3</div>
+				</div>
+				<div class="score-block">
+					<div class="score">Score:</div>
+					<div class="score-value">0</div>
+				</div>
+				<div class="result-block">Your score:</div>
+			</div>
+			<div class="word"></div>
+			<div class="buttons">
+				<button class="seen" onClick="seen_word()">Seen</button>
+				<button class="new" onClick="new_word()">New</button>
+				<button class="restart" onclick="restartGame()">Restart</button>
+			</div>
+		</div>
+		{% load static %}
+		<script type="text/javascript" src="{% static 'base/words.js' %}"></script>
+		<script type="text/javascript" src="{% static 'base/verbal_memory.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	</body>
+{%endblock content%}
