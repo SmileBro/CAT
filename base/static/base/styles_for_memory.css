@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+* {	
+	font-family: 'Nunito', sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 150%;
+    font-weight: 500;
+}
+
+a:active, a:hover, a {
+    text-decoration: none;
+    color: black;
+}
+
+.left-items, .right-items {
+    display: flex;
+}
+
+.logo {
+    height: 60px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+.login, .signup {
+    display: flex;
+    align-items: center;
+    float: right;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+.logo:hover, .rating:hover, .login:hover, .signup:hover {
+    background: rgb(229, 229, 253);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	margin: 10px;
+	font-size: 2.5rem;
+	text-align: center;
+}
+	
+.subtitle, .level {
+	margin: 10px;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+.main {
+    user-select: none;
+	display: flex;
+	justify-content: center;
+}
+
+.cards-parent {
+	width: 80%;
+    height: 470px;
+    border-radius: 12px;
+    background: #668f53;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.row {
+	text-align: center;
+	display: flex;
+}
+
+.card {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	margin: 4px;
+	background-color: #eee;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.highlight {
+	background-color: #999;
+}
+
+.card:hover {
+	background-color: #ddf;
+}
+
+.start {
+	background-color: #ffc473;
+	font-size: 1.5rem;
+	padding: 10px;
+	margin: 20px;
+	border: 1px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.start:hover {
+	background-color: #ffdb92;
+}

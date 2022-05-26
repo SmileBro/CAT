@@ -2,44 +2,77 @@
 {% block content %}
 	<body>
 	{% csrf_token %}
-		<div class="container">
-			<div class="title">Speed Typing Test</div>
-			<div class="header">
-				<div class="wpm">
-					<div class="header_text">WPM</div>
-					<div class="curr_wpm">100</div>
+        <div class="header">
+            <div class="left-items">
+                <a href="{% url 'games' %}">
+                    <div class="logo">
+                        <div><img src="https://emojis.wiki/emoji-pics/openmoji/black-cat-openmoji.png" width="60" height="60" class="displayed"></div>
+                        <div>C.A.T.</div>
+                    </div>
+                </a>
+                <a href="{% url 'results' %}">
+                    <div class="rating">РЕЙТИНГ</div>
+                </a>
+            </div>
+            <div class="right-items">
+                {% if request.user.is_authenticated %}
+                <a href="{%url 'logout'%}">
+                    <div class="login">ВЫЙТИ</div>
+                </a>
+                {% else %}
+                 <a href="{%url 'login'%}">
+                    <div class="login">ВОЙТИ</div>
+                </a>
+                {%endif%}
+                {% if request.user.is_authenticated %}
+                <div class="signup">{{request.user}}</div>
+                {% else %}
+                <a href="{%url 'register'%}">
+                <div class="signup">РЕГИСТРАЦИЯ</div>
+                </a>
+                {%endif%}
+            </div>
+        </div>
+        <div class="container">
+			<div class="title">Скорость печати</div>
+			<div class="cards-parent">
+				<div class="cards-header">
+					<div class="wpm">
+						<div class="cards-header-text">Слово/мин</div>
+						<div class="current-wpm">100</div>
+					</div>
+					<div class="cpm">
+						<div class="cards-header-text">Символ/мин</div>
+						<div class="current-cpm">100</div>
+					</div>
+					<div class="errors">
+						<div class="cards-header-text">Ошибки</div>
+						<div class="current-errors">0</div>
+					</div>
+					<div class="timer">
+						<div class="cards-header-text">Осталось</div>
+						<div class="current-time">60s</div>
+					</div>
+					<div class="accuracy">
+						<div class="cards-header-text">% Точность</div>
+						<div class="current-accuracy">100</div>
+					</div>
 				</div>
-				<div class="cpm">
-					<div class="header_text">CPM</div>
-					<div class="curr_cpm">100</div>
-				</div>
-				<div class="errors">
-					<div class="header_text">Mistakes</div>
-					<div class="curr_errors">0</div>
-				</div>
-				<div class="timer">
-					<div class="header_text">Time Left</div>
-					<div class="curr_time">60s</div>
-				</div>
-				<div class="accuracy">
-					<div class="header_text">% Accuracy</div>
-					<div class="curr_accuracy">100</div>
-				</div>
+				<div class="quote">Нажмите в поле ниже, чтобы начать.</div>
+				<textarea class="input-area"
+					placeholder="начните писать здесь..."
+					oninput="processCurrentText()"
+					onfocus="startGame()">
+				</textarea>
+				<button class="restart-button"
+					onclick="resetValues()">
+					Заново
+				</button>
 			</div>
-
-			<div class="quote">Click on the area below to start the game.</div>
-			<textarea class="input_area"
-				placeholder="start typing here..."
-				oninput="processCurrentText()"
-				onfocus="startGame()">
-			</textarea>
-			<button class="restart_button"
-				onclick="resetValues()">
-				Restart
-			</button>
 		</div>
 		{% load static %}
 		<script type="text/javascript" src="{% static 'base/type_speed.js' %}"></script>
+		<script type="text/javascript" src="{% static 'base/paragraphs.js' %}"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	</body>
 {%endblock content%}

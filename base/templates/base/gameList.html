@@ -1,151 +1,86 @@
 {% extends 'base/main.html' %}
 {% block content %}
+{% load static %}
+{% csrf_token %}
+        <div class="header">
+            <div class="left-items">
+                <a href="{% url 'games' %}">
+                    <div class="logo">
+                        <div><img src="https://emojis.wiki/emoji-pics/openmoji/black-cat-openmoji.png" width="60" height="60" class="displayed"></div>
+                        <div>C.A.T.</div>
+                    </div>
+                </a>
 
-<body>
-    {% csrf_token %}
-    <header>
-        <div class="mainbrd">
-            <ul>
-                <li>
-                    <ul>
-                        <li>
-                            <button class="MainButton">
-								<a href="{% url 'games' %}" class="text">
-								<img src="https://emojis.wiki/emoji-pics/openmoji/black-cat-openmoji.png" width="60" height="60" class="displayed">
-								<p class="p1"><span class="MainText">C.A.T.</span></p></a>
-							</button>
-                        </li>
-                        <li>
-                            <a href="{% url 'results' %}">
-                            <button class="RateButton">
-								<p><span class="HeaderText">РЕЗУЛЬТАТЫ</span></p>
-							</button>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="right">
-                    <button class="LoginButton">
-                        {% if request.user.is_authenticated %}
-						<a href="{%url 'logout'%}"><p><span class="HeaderText">ВЫЙТИ</span></p></a>
-                        {% else %}
-                        <a href="{%url 'login'%}"><p><span class="HeaderText">ВОЙТИ</span></p></a>
-                        {%endif%}
-					</button>
-                </li>
-                <li class="right">
-                    <button class="SignUpButton">
-                        {% if request.user.is_authenticated %}
-						<p><span class="HeaderText">{{request.user}}</span></p>
-                         {% else %}
-                        <a href="{%url 'register'%}"><p><span class="HeaderText">РЕГИСТРАЦИЯ</span></p></a>
-                        {%endif%}
-					</button>
-                </li>
-            </ul>
+                    <div class="rating">
+                        <a href="{% url 'results' %}">
+                        РЕЙТИНГ
+                        </a>
+                    </div>
+            </div>
+            <div class="right-items">
+                {% if request.user.is_authenticated %}
+                    <div class="login">
+                        <a href="{%url 'logout'%}">
+                            ВЫЙТИ
+                        </a>
+                    </div>
+                {% else %}
+
+                    <div class="login">
+                        <a href="{%url 'login'%}">
+                            ВОЙТИ
+                        </a>
+                    </div>
+
+                {%endif%}
+                {% if request.user.is_authenticated %}
+                <div class="signup">{{request.user}}</div>
+                {% else %}
+
+                <div class="signup">
+                    <a href="{%url 'register'%}">
+                        РЕГИСТРАЦИЯ
+                    </a>
+                    </div>
+
+                {%endif%}
+            </div>
         </div>
-    </header>
-    <div class="gamebrd" id="firstTest">
-        <p class="p2"> &nbsp;</p>
-        <p>
-            {% load static %}
-            <img src="{% static 'base/Cat1.jpg' %}">
-        </p>
-        <p>
-            <span class="BorderWText">C.A.T. - Cognitive Ability Test</span>
-        </p>
-        <p>
-            <span class="BorderWText">Тесты для развития когнитивных навыков</span>
-        </p>
-        <p>
-            <span class="BorderWText">Чтобы начать нажмите кнопку "СТАРТ"</span>
-        </p>
-        <p>
-            <center><button class="StartButton StartSize">СТАРТ</button></center>
-        </p>
-    </div>
-    <div>
-        <center>
-            <table class="iksweb">
-                <tbody>
-                    <tr>
-                        <td>
-                            <center>
-                                <a href="{% url 'reaction_time' %}" class="text">
-                                <button class="GamesButton GameSize">
-
-										<ul class="ul1">
-											<li>
-												<p class="p2"><img src="https://protymen.ru/upload/iblock/900/900af8917113cba76314148af9f3a1fd.png" width="106.4" height="106.4"></p>
-											</li>
-											<li>
-												<p class="p2"> &nbsp;</p><p class="p2">Скорость реакции</p>
-											</li>
-										</ul>
-
-								</button>
-                                    </a>
-                            </center>
-                        </td>
-                        <td>
-                            <center>
-                                <a href="{% url 'verbal' %}" class="text">
-                                <button class="GamesButton GameSize">
-
-										<ul class="ul1">
-											<li>
-												<p class="p2"><img src="https://cdn-icons-png.flaticon.com/512/182/182321.png" width="106.4" height="106.4"></p>
-											</li>
-											<li>
-												<p class="p2"> &nbsp;</p><p class="p2">Вербальная память</p>
-											</li>
-										</ul>
-
-								</button>
-                                </a>
-                            </center>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <center>
-                                <a href="{% url 'memory_test' %}" class="text">
-                                <button class="GamesButton GameSize">
-
-										<ul class="ul1">
-											<li>
-												<p class="p2"><img src="https://cdn-icons-png.flaticon.com/512/666/666907.png" width="106.4" height="106.4"></p>
-											</li>
-											<li>
-												<p class="p2"> &nbsp;</p><p class="p2">Порядковая память</p>
-											</li>
-										</ul>
-								</button>
-                                    </a>
-                            </center>
-                        </td>
-                        <td>
-                            <center>
-                                <a href="{% url 'type_speed' %}" class="text">
-                                <button class="GamesButton GameSize">
-
-										<ul class="ul1">
-											<li>
-												<p class="p2"><img src="https://cdn-icons-png.flaticon.com/512/40/40144.png" width="106.4" height="106.4"></p>
-											</li>
-											<li>
-												<p class="p2"> &nbsp;</p>
-												<p class="p2">Скорость печатания</p>
-											</li>
-										</ul>
-								</button>
-                                </a>
-                            </center>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </center>
-    </div>
-</body>
+        <div class="main" id="firstTest">
+            <div><img src="{% static 'base/Cat1.jpg' %}"></div>
+            <div class="text-in-main">C.A.T. - Cognitive Ability Test</div>
+            <div class="text-in-main">Тесты для развития когнитивных способностей</div>
+            <div class="text-in-main">Чтобы начать нажмите кнопку СТАРТ</div>
+            <a href="{% url 'reaction_time' %}"><button class="start start-animation">СТАРТ</button></a>
+        </div>
+        <div class="cards-parent">
+            <div class="cards-row">
+                <div class="card card-animation">
+                     <a href="{% url 'reaction_time' %}">
+                        <div><img src="https://protymen.ru/upload/iblock/900/900af8917113cba76314148af9f3a1fd.png" width="106.4" height="106.4"></div>
+                        <div>Скорость реакции</div>
+                    </a>
+                </div>
+                <div class="card card-animation">
+                     <a href="{% url 'verbal' %}">
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/182/182321.png" width="106.4" height="106.4"></div>
+                        <div>Вербальная память</div>
+                    </a>
+                </div>
+            </div>
+            <div class="cards-row">
+                <div class="card card-animation">
+                    <a href="{% url 'memory_test' %}">
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/666/666907.png" width="106.4" height="106.4"></div>
+                        <div>Порядковая память</div>
+                    </a>
+                </div>
+                <div class="card card-animation">
+                     <a href="{% url 'type_speed' %}">
+                        <div><img src="https://cdn-icons-png.flaticon.com/512/40/40144.png" width="106.4" height="106.4"></div>
+                        <div>Скорость печатания</div>
+                    </a>
+                </div>
+            </div>
+        </div>
 {% endblock content %}

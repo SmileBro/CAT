@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 150%;
+    font-weight: 500;
+}
+
+a:active, a:hover, a {
+    text-decoration: none;
+    color: black;
+}
+
+.left-items, .right-items {
+    display: flex;
+}
+
+.logo {
+    height: 60px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+.login, .signup {
+    display: flex;
+    align-items: center;
+    float: right;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+.logo:hover, .rating:hover, .login:hover, .signup:hover {
+    background: rgb(229, 229, 253);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin: 10px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    margin: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    user-select: none;
+}
+
+.main {
+    user-select: none;
+}
+
+.canvas-parent {
+    cursor: pointer;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 470px;
+    background: #668f53;
+    border-radius: 12px;
+}

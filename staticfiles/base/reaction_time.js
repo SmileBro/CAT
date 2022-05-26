@@ -7,12 +7,12 @@ let parent_width = canvas_parent.clientWidth;
 
 canvas.height = parent_height;
 canvas.width = parent_width;
+canvas.style.borderRadius = "12px";
 
 context.textAlign = "center";
-context.textBaseline = "middle";
-context.font = "bold 30px Tahoma";
 context.fillStyle = "white";
-context.fillText('Нажми здесь', canvas.width / 2, canvas.height / 2);
+context.font = "25pt Nunito";
+context.fillText("Нажми здесь", canvas.width / 2, canvas.height / 2);
 
 let time_text = document.getElementById('time-text');
 
@@ -45,7 +45,7 @@ function start_game() {
 	canvas.style.background = "#ff0000";
 	color_status = BackgroundIs.RED;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	context.fillText("Wait for green!", canvas.width / 2, canvas.height / 2);
+	context.fillText("Дождитесь зелёного!", canvas.width / 2, canvas.height / 2);
 	start_until(change_time); // green color will appear
 	end_until(end_time); // green color will disappear 5 sec after it appears
 }
@@ -59,7 +59,21 @@ function start_until(time) {
 		console.log(first_click);
 	}, time);
 }
-
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 function end_game() {
 	clearTimeout(start_timeout);
 	clearTimeout(end_timeout);
@@ -69,24 +83,24 @@ function end_game() {
 		console.log(second_click);
 		play_time = (second_click - first_click - 90);
 		//time_text.innerHTML = play_time + " ms";
-		var xhr = new XMLHttpRequest();
-		var body = 'result=' + encodeURIComponent(play_time);
-		xhr.open("POST", '/reaction_time/', true);
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		//xhr.onreadystatechange = callback;
-		xhr.send(body);
+		var csrftoken = getCookie('csrftoken');
+		var request = new XMLHttpRequest();
+		request.open('POST', '/reaction_time/');
+		request.setRequestHeader("X-CSRFToken", csrftoken);
+		request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+		request.send(play_time);
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.fillText(play_time + " ms", canvas.width / 2, canvas.height / 2);
 	}
 	else if (game_status === GameIs.START) { // if there was no click
-		//time_text.innerHTML = "Too late!";
-		context.clearRect(0, 0, canvas.width, canvas.height);
-		context.fillText("Too late!", canvas.width / 2, canvas.height / 2);
+	//time_text.innerHTML = "Too late!";
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillText("Слишком поздно!", canvas.width / 2, canvas.height / 2);
 	}
 	else {
-		//time_text.innerHTML = "Too soon!"; // if the click was before green
-		context.clearRect(0, 0, canvas.width, canvas.height);
-		context.fillText("Too soon!", canvas.width / 2, canvas.height / 2);
+        //time_text.innerHTML = "Too soon!"; // if the click was before green
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillText("Слишком рано!", canvas.width / 2, canvas.height / 2);
 	}
 	canvas.style.background = "rgb(86, 86, 231)"; // blue (default)
 	game_status = GameIs.STOP;

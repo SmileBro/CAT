@@ -8,65 +8,131 @@
     <link rel="shortcut icon" href="black-cat-openmoji.ico" type="image/x-icon">
 </head>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 * {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Nunito', sans-serif;
 }
-     .header {
-	border: none;
-	background: white;
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 150%;
+    font-weight: 500;
+}
+
+a:active, a:hover, a {
+    text-decoration: none;
+    color: black;
+}
+
+.left-items, .right-items {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    padding: 0 10px 0 10px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+.login, .signup {
+    display: flex;
+    align-items: center;
+    float: right;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+}
+
+.logo:hover, .rating:hover, .login:hover, .signup:hover {
+    background: rgb(229, 229, 253);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	margin: 10px;
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+.subtitle, .level {
+	margin: 10px;
+	font-size: 1.2rem;
 	text-align: center;
 }
 
 .main {
-	-moz-user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;   
-    -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
-    -khtml-user-select: none;
+	display: flex;
+	justify-content: center;
 }
 
 .cards-parent {
 	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-	height: 470px;
-	border-radius: 9px;
-	background: rgb(86, 86, 231);
-	display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
+    height: 470px;
+    border-radius: 12px;
+    background: rgb(86, 86, 231);
+    display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .row {
 	text-align: center;
+	display: flex;
 }
 
 .card {
 	display: inline-block;
 	width: 80px;
 	height: 80px;
-	margin: 1px;
+	margin: 4px;
 	background-color: #eee;
-	border-radius: 9px;
+	border-radius: 12px;
 	cursor: pointer;
-}
-
-.card:hover {
-	background-color: #ddf;
 }
 
 .highlight {
 	background-color: #999;
 }
 
-body {
-	margin: 0;
-	padding: 0;
+.card:hover {
+	background-color: #ddf;
+}
+
+.start {
+	background-color: #ffc473;
+	font-size: 1.5rem;
+	padding: 10px;
+	margin: 20px;
+	border: 1px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+.start:hover {
+	background-color: #ffdb92;
 }
     </style>
 </head>

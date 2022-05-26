@@ -1,18 +1,47 @@
-{% extends 'base/main.html' %}
+{% extends 'base/reaction_time/main.html' %}
 {% block content %}
 	<body>
 
     	{% csrf_token %}
 
 		<div class="header">
-			<h1 class="title">Reaction Time</h1>
-		</div>
-		<div class="main">
-			<p align="center">
-				<span class="subtitle">Когда красное поле станет зелёным, быстро нажмите на экран</span>
-			</p>
-			<div class="canvas-parent">
-				<canvas id="canvas"></canvas>
+            <div class="left-items">
+                <a href="{% url 'games' %}">
+                    <div class="logo">
+                        <div><img src="https://emojis.wiki/emoji-pics/openmoji/black-cat-openmoji.png" width="60" height="60" class="displayed"></div>
+                        <div>C.A.T.</div>
+                    </div>
+                </a>
+                <a href="{% url 'results' %}">
+                    <div class="rating">РЕЙТИНГ</div>
+                </a>
+            </div>
+            <div class="right-items">
+                {% if request.user.is_authenticated %}
+                <a href="{%url 'logout'%}">
+                    <div class="login">ВЫЙТИ</div>
+                </a>
+                {% else %}
+                 <a href="{%url 'login'%}">
+                    <div class="login">ВОЙТИ</div>
+                </a>
+                {%endif%}
+                {% if request.user.is_authenticated %}
+                <div class="signup">{{request.user}}</div>
+                {% else %}
+                <a href="{%url 'register'%}">
+                <div class="signup">РЕГИСТРАЦИЯ</div>
+                </a>
+                {%endif%}
+            </div>
+        </div>
+		<div class="container">
+			<div class="title">Скорость реакции</div>
+			<div class="subtitle">Когда красное поле станет зелёным, быстро нажмите на экран</div>
+			<div class="main">
+				<div class="canvas-parent">
+					<canvas id="canvas"></canvas>
+				</div>
 			</div>
 		</div>
 		{% load static %}

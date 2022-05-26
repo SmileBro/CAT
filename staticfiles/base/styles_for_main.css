@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C.A.T.</title>
-    <link rel="shortcut icon" href="black-cat-openmoji.ico" type="image/x-icon">
-</head>
-    <style>
-   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 * {
     font-family: 'Nunito', sans-serif;
 }
-table{
-        text-align: center;
-    }
-    th{
-        text-align: center;
-        padding: 30px;
-        border:2px solid blue;
-        border-radius:12px;
-    }
-    td{
-        padding:20px;
-        border-bottom:1px solid black;
-    }
+
 body {
     margin: 0;
     padding: 0;
@@ -45,7 +23,6 @@ a:active, a:hover, a {
 
 .left-items, .right-items {
     display: flex;
-    align-items: center;
 }
 
 .logo {
@@ -79,7 +56,7 @@ a:active, a:hover, a {
 .main {
     display: flex;
     flex-direction: column;
-    background: rgb(86, 86, 231);
+    background: #668f53;
     align-items: center;
     width: 80%;
     border-radius: 12px;
@@ -161,57 +138,57 @@ a:active, a:hover, a {
 
 [data-tooltip] {
     position: relative;
-    /* РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕРµ РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ */
+    /* Относительное позиционирование */
 }
 
 [data-tooltip]::after {
 
     font-size: 14px;
     content: attr(data-tooltip);
-    /* Р’С‹РІРѕРґРёРј С‚РµРєСЃС‚ */
+    /* Выводим текст */
     position: absolute;
-    /* РђР±СЃРѕР»СЋС‚РЅРѕРµ РїРѕР·РёС†РёРѕРЅРёСЂРѕРІР°РЅРёРµ */
+    /* Абсолютное позиционирование */
     width: 300px;
-    /* РЁРёСЂРёРЅР° РїРѕРґСЃРєР°Р·РєРё */
+    /* Ширина подсказки */
     left: 0;
     top: 0;
-    /* РџРѕР»РѕР¶РµРЅРёРµ РїРѕРґСЃРєР°Р·РєРё */
+    /* Положение подсказки */
     background: #ffffff;
-    /* РЎРёРЅРёР№ С†РІРµС‚ С„РѕРЅР° */
+    /* Синий цвет фона */
     color: rgb(0, 0, 0);
-    /* Р¦РІРµС‚ С‚РµРєСЃС‚Р° */
+    /* Цвет текста */
     padding: 0.5em;
-    /* РџРѕР»СЏ РІРѕРєСЂСѓРі С‚РµРєСЃС‚Р° */
+    /* Поля вокруг текста */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    /* РџР°СЂР°РјРµС‚СЂС‹ С‚РµРЅРё */
+    /* Параметры тени */
     pointer-events: none;
-    /* РџРѕРґСЃРєР°Р·РєР° */
+    /* Подсказка */
     opacity: 0;
-    /* РџРѕРґСЃРєР°Р·РєР° РЅРµРІРёРґРёРјР° */
+    /* Подсказка невидима */
     transition: 1s;
-    /* Р’СЂРµРјСЏ РїРѕСЏРІР»РµРЅРёСЏ РїРѕРґСЃРєР°Р·РєРё */
+    /* Время появления подсказки */
 }
 
 [data-tooltip]:hover::after {
     opacity: 1;
-    /* РџРѕРєР°Р·С‹РІР°РµРј РїРѕРґСЃРєР°Р·РєСѓ */
+    /* Показываем подсказку */
     top: 2em;
-    /* РџРѕР»РѕР¶РµРЅРёРµ РїРѕРґСЃРєР°Р·РєРё */
+    /* Положение подсказки */
 }
 
 #username {
     height: 30px;
-    /* РЁРёСЂРёРЅР° РїРѕР»СЏ РІ РїРёРєСЃРµР»Р°С… */
+    /* Ширина поля в пикселах */
 }
 
 #password1 {
     height: 30px;
-    /* РЁРёСЂРёРЅР° РїРѕР»СЏ РІ РїРёРєСЃРµР»Р°С… */
+    /* Ширина поля в пикселах */
 }
 
 #password2 {
     height: 30px;
-    /* РЁРёСЂРёРЅР° РїРѕР»СЏ РІ РїРёРєСЃРµР»Р°С… */
+    /* Ширина поля в пикселах */
 }
 
 .formbrd {
@@ -219,21 +196,9 @@ a:active, a:hover, a {
     margin: auto;
     padding: 0;
     text-align: center;
-    /* РџР°СЂР°РјРµС‚СЂС‹ РіСЂР°РЅРёС†С‹ */
+    /* Параметры границы */
     background: rgb(229, 229, 253);
-    /* Р¦РІРµС‚ С„РѕРЅР° */
-    /* РџРѕР»СЏ РІРѕРєСЂСѓРі С‚РµРєСЃС‚Р° */
+    /* Цвет фона */
+    /* Поля вокруг текста */
 }
 
-
-
-    </style>
-</head>
-<body>
-
-        {% block content %}
-
-        {% endblock content %}
-
-</body>
-</html>
